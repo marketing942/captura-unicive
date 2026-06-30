@@ -11,8 +11,8 @@
    2) WHATSAPP_NUM → número de atendimento, só dígitos, com DDI 55
 -------------------------------------------------------------------------- */
 const SHEET_URL    = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIWb645xRjGNhBVhTdTf5UMjo0lSpW_A_jCuys0qB4uImKXPQ/exec";
-const WHATSAPP_NUM = "5581973105354";
-const WHATSAPP_MSG = "Olá! Acabei de me cadastrar na pré-venda da UniCV e quero saber mais sobre as condições.";
+const WHATSAPP_NUM = "5581992640766";
+const WHATSAPP_MSG = "Olá! Quero fazer meu ensino superior!";
 const REDIRECT_SEG = 3; // segundos antes de abrir o WhatsApp
 
 /* O carrossel é HTML estático no index.html (carrega cedo, sem depender deste JS).
