@@ -107,19 +107,14 @@ if (form) {
       success.hidden = false;
       success.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      // Contagem regressiva → redireciona para o WhatsApp (mesma aba = sem bloqueio de popup)
-      const countEl = document.getElementById("countdown");
-      let seg = REDIRECT_SEG;
-      if (countEl) countEl.textContent = seg;
-      const timer = setInterval(() => {
-        seg--;
-        if (countEl) countEl.textContent = Math.max(seg, 0);
-        if (seg <= 0) {
-          clearInterval(timer);
-          const url = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
-          window.location.href = url;
-        }
-      }, 1000);
+      const msg = encodeURIComponent(
+  "Olá, acabei de me cadastrar!"
+);
+
+// Redireciona na mesma aba (sem popup)
+window.location.href =
+  `https://wa.me/${WHATSAPP_NUM}?text=${msg}`;
+       
     } catch (err) {
       setError("telefone", "Erro ao enviar. Tente novamente.");
       btn.disabled = false;
