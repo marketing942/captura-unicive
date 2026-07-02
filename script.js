@@ -108,7 +108,7 @@ if (form) {
       success.scrollIntoView({ behavior: "smooth", block: "center" });
 
       const msg = encodeURIComponent(
-  "Olá, acabei de me cadastrar!"
+  "Quero saber mais sobre o superior EAD!"
 );
 
 // Redireciona na mesma aba (sem popup)
