@@ -10,7 +10,7 @@
        "Quem pode acessar: Qualquer pessoa"; copie a URL terminada em /exec)
    2) WHATSAPP_NUM → número de atendimento, só dígitos, com DDI 55
 -------------------------------------------------------------------------- */
-const SHEET_URL    = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIWb645xRjGNhBVhTdTf5UMjo0lSpW_A_jCuys0qB4uImKXPQ/exec";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIWb645xRjGNhBVhTdTf5UMjo0lSpW_A_jCuys0qB4uImKXPQ/exec?aba=UNICIVE";
 const WHATSAPP_NUM = "5581992640766";
 const WHATSAPP_MSG = "Quero saber mais sobre o superior EAD!";
 const REDIRECT_SEG = 3; // segundos antes de abrir o WhatsApp
