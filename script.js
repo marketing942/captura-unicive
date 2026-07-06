@@ -1,10 +1,11 @@
 /* =========================================================
    UniCV Caruaru — Pré-venda
-   Formulário → Google Sheets + redirect WhatsApp
+   Formulário → Google Sheets + Pixel + PixelX redirect WhatsApp
    ========================================================= */
 
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIWb645xRjGNhBVhTdTf5UMjo0lSpW_A_jCuys0qB4uImKXPQ/exec?aba=UNICIVE";
-const WHATSAPP_NUM = "5581992640766";
+
+const PIXELX_WHATSAPP_REDIRECT = "https://pxa.cppem.com.br/lt/unicive-whatsapp-redirect";
 const WHATSAPP_MSG = "Quero saber mais sobre o superior EAD!";
 
 /* ---------- Máscara: (00) 00000-0000 ---------- */
@@ -112,13 +113,16 @@ if (form) {
       await fetch(SHEET_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
         body: JSON.stringify(payload),
       });
 
-      if (typeof fbq !== "undefined") {
+      if (typeof fbq === "function") {
         fbq("track", "Lead", {
-          content_name: "Pre-venda UniCV Caruaru"
+          content_name: "Pre-venda UniCV Caruaru",
+          page_url: window.location.href
         });
       }
 
@@ -134,9 +138,13 @@ if (form) {
 
       const msg = encodeURIComponent(WHATSAPP_MSG);
 
-      window.location.href = `https://wa.me/${WHATSAPP_NUM}?text=${msg}`;
+      setTimeout(() => {
+        window.location.href = `${PIXELX_WHATSAPP_REDIRECT}?text=${msg}`;
+      }, 700);
 
     } catch (err) {
+      console.error("[Form] Erro ao enviar:", err);
+
       setError("telefone", "Erro ao enviar. Tente novamente.");
 
       btn.disabled = false;
