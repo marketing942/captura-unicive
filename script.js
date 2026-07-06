@@ -99,10 +99,14 @@ if (form) {
 
     const escolaridadeSelect = form.escolaridade;
 
+    // Telefone limpo em formato E.164 (5581987654321)
+    const telLimpo = "55" + form.telefone.value.replace(/\D/g, "");
+
     const payload = {
       nome: form.nome.value.trim(),
       email: form.email.value.trim(),
       telefone: form.telefone.value.trim(),
+      telefone_e164: telLimpo,
       escolaridade: escolaridadeSelect.options[escolaridadeSelect.selectedIndex].text,
       pagina_url: window.location.href,
       utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
@@ -136,10 +140,16 @@ if (form) {
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       }
 
-      const msg = encodeURIComponent(WHATSAPP_MSG);
+      // Redirect com dados explícitos — não depende da captura automática do pixel
+      const params = new URLSearchParams({
+        text: WHATSAPP_MSG,
+        name: form.nome.value.trim(),
+        email: form.email.value.trim(),
+        phone: telLimpo
+      });
 
       setTimeout(() => {
-        window.location.href = `${PIXELX_WHATSAPP_REDIRECT}?text=${msg}`;
+        window.location.href = `${PIXELX_WHATSAPP_REDIRECT}?${params.toString()}`;
       }, 700);
 
     } catch (err) {
