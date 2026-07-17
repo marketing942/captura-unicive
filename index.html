@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="public/logomarca unicive.png" />
+  <link rel="preload" as="image" href="public/background1.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="public/logomarca unicive.png" fetchpriority="high" />
 
   <!-- Pixel X App - START -->
   <script type='text/javascript'>
@@ -64,7 +66,7 @@
     /* ===== Fundo: imagem designed (clara) ===== */
     .bg{
       position:fixed;inset:0;z-index:-2;
-      background:url('public/background1.png') center/cover no-repeat;
+      background:url('public/background1.webp') center/cover no-repeat;
     }
     /* leve clareada no topo só para dar respiro ao texto */
     .bg-scrim{
@@ -115,17 +117,19 @@
       width:100%;
       max-width:640px;
       margin:0 auto 22px;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(227,161,27,.45);
       line-height:0;
+      position:relative;
+      z-index:1;
     }
     .video-wrap iframe{
       display:block;
       width:100%;
       height:auto;
       aspect-ratio:720/360;
+      border-radius:16px !important;
+      box-shadow:var(--shadow), 0 0 0 1px rgba(227,161,27,.45);
+      touch-action:auto;
+      pointer-events:auto;
     }
 
     /* ===== CTA de abrir o formulário ===== */
@@ -348,7 +352,7 @@
   <main class="page">
 
     <!-- Logo UniCV -->
-    <img class="logo" src="public/logomarca unicive.png" alt="Unicive Caruaru - PE" />
+    <img class="logo" src="public/logomarca unicive.png" alt="Unicive Caruaru - PE" fetchpriority="high" decoding="async" />
 
     <!-- 1. HEADLINE -->
     <h1 class="headline">
@@ -415,29 +419,29 @@
       <div class="carousel" aria-label="Fotos de formados da Unicive">
         <ul class="carousel__track">
           <!-- sequência principal -->
-          <li class="carousel__item"><img src="public/formados/formados.webp"        width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados1.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados2.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados3.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados4.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados5.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados6.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados1%20(1).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados1%20(5).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados1%20(6).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
-          <li class="carousel__item"><img src="public/formados/formados1%20(8).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados.webp"        width="220" height="280" loading="eager" fetchpriority="low" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados1.webp"       width="220" height="280" loading="eager" fetchpriority="low" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados2.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados3.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados4.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados5.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados6.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados1%20(1).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados1%20(5).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados1%20(6).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
+          <li class="carousel__item"><img src="public/formados/formados1%20(8).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="Formado(a) da UniCV" /></li>
           <!-- cópia oculta para o loop infinito (translateX -50%) -->
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados.webp"        width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados2.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados3.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados4.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados5.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados6.webp"       width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(1).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(5).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(6).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
-          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(8).webp" width="220" height="280" loading="eager" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados.webp"        width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados2.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados3.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados4.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados5.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados6.webp"       width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(1).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(5).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(6).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
+          <li class="carousel__item" aria-hidden="true"><img src="public/formados/formados1%20(8).webp" width="220" height="280" loading="lazy" decoding="async" draggable="false" alt="" /></li>
         </ul>
       </div>
     </section>
@@ -446,8 +450,8 @@
 
   <!-- 4. RODAPÉ — selos -->
   <footer class="footer">
-    <img class="seal-notamaxima" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="eager" decoding="async" />
-    <img class="seal-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="eager" decoding="async" />
+    <img class="seal-notamaxima" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
+    <img class="seal-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
   </footer>
 
   <script src="script.js"></script>
