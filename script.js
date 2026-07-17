@@ -8,6 +8,36 @@ const SHEET_URL = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIW
 const PIXELX_WHATSAPP_REDIRECT = "https://pxa.cppem.com.br/lt/unicive-whatsapp-redirect";
 const WHATSAPP_MSG = "Quero saber mais sobre o superior EAD!";
 
+/* ---------- Popup do formulário ---------- */
+const formModal = document.getElementById("form-modal");
+const openFormBtn = document.getElementById("open-form-btn");
+const closeFormBtn = document.getElementById("close-form-btn");
+
+function openFormModal() {
+  if (!formModal) return;
+  formModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+
+function closeFormModal() {
+  if (!formModal) return;
+  formModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+if (openFormBtn) openFormBtn.addEventListener("click", openFormModal);
+if (closeFormBtn) closeFormBtn.addEventListener("click", closeFormModal);
+
+if (formModal) {
+  formModal.addEventListener("click", (e) => {
+    if (e.target === formModal) closeFormModal();
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && formModal && !formModal.hidden) closeFormModal();
+});
+
 /* ---------- Máscara: (00) 00000-0000 ---------- */
 const telefoneInput = document.getElementById("telefone");
 
