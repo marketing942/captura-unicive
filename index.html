@@ -376,7 +376,9 @@
 
         <!-- PixelX: a classe "gbcbxsmvgqsjeajougck" no botão dispara a conversão (Contact).
              O Super Pixel captura automaticamente os campos pelo name/id (nome, email,
-             telefone), transformando o lead anônimo em lead cadastrado. -->
+             telefone), transformando o lead anônimo em lead cadastrado.
+             A classe só é adicionada via script.js quando todos os campos estão
+             válidos, para evitar contabilizar lead em clique com formulário vazio/errado. -->
         <form class="form" id="lead-form" novalidate>
           <p class="form__title" id="form-modal-title">FAÇA SEU TECNÓLOGO EM 18 MESES</p>
 
@@ -401,7 +403,7 @@
             <span class="error" data-error-for="escolaridade"></span>
           </div>
 
-          <button type="submit" id="lead-submit" class="cta gbcbxsmvgqsjeajougck">QUERO TER MEU ENSINO SUPERIOR</button>
+          <button type="submit" id="lead-submit" class="cta">QUERO TER MEU ENSINO SUPERIOR</button>
           <p class="note">Cadastro gratuito. Seus dados estão seguros.</p>
           <p class="success" id="form-success" role="status" hidden>
             ✅ Cadastro recebido!<br />

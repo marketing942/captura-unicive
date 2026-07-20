@@ -81,6 +81,30 @@ function clearError(name) {
 
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
+/* Checagem silenciosa (sem mexer na UI de erro), usada para só liberar
+   a classe de conversão do PixelX quando o formulário estiver realmente válido. */
+function isFormValid() {
+  const nome = form.nome.value.trim();
+  const email = form.email.value.trim();
+  const tel = form.telefone.value.replace(/\D/g, "");
+  const escolaridade = form.escolaridade.value;
+
+  return nome.length >= 3 && isEmail(email) && tel.length >= 10 && !!escolaridade;
+}
+
+const PIXELX_CLASS = "gbcbxsmvgqsjeajougck";
+
+function syncPixelClass() {
+  const btn = document.getElementById("lead-submit");
+  if (btn) btn.classList.toggle(PIXELX_CLASS, isFormValid());
+}
+
+if (form) {
+  form.addEventListener("input", syncPixelClass);
+  form.addEventListener("change", syncPixelClass);
+  syncPixelClass();
+}
+
 function validate() {
   let ok = true;
 
@@ -152,13 +176,6 @@ if (form) {
         },
         body: JSON.stringify(payload),
       });
-
-      if (typeof fbq === "function") {
-        fbq("track", "Lead", {
-          content_name: "Pre-venda UniCV Caruaru",
-          page_url: window.location.href
-        });
-      }
 
       if (success) {
         form.querySelectorAll(".field, .note").forEach((el) => {
