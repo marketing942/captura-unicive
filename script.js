@@ -38,23 +38,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && formModal && !formModal.hidden) closeFormModal();
 });
 
-/* ---------- Máscara: (00) 00000-0000 ---------- */
-const telefoneInput = document.getElementById("telefone");
-
-if (telefoneInput) {
-  telefoneInput.addEventListener("input", () => {
-    const v = telefoneInput.value.replace(/\D/g, "").slice(0, 11);
-    let out = "";
-
-    if (v.length > 0) out = "(" + v.slice(0, 2);
-    if (v.length >= 2) out += ") ";
-    if (v.length > 2) out += v.slice(2, 7);
-    if (v.length > 7) out += "-" + v.slice(7, 11);
-
-    telefoneInput.value = out;
-  });
-}
-
 /* ---------- Validação ---------- */
 const form = document.getElementById("lead-form");
 
@@ -116,7 +99,7 @@ function validate() {
 
 /* ---------- Envio ---------- */
 if (form) {
-  const btn = document.getElementById("lead-submit");
+  const btn = document.getElementById("BfDnaaTxKjfyDfufDkvR");
   const success = document.getElementById("form-success");
 
   form.addEventListener("submit", async (e) => {
