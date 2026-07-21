@@ -14,30 +14,6 @@
   <link rel="preload" as="image" href="public/background1.webp" fetchpriority="high" />
   <link rel="preload" as="image" href="public/logomarca unicive.png" fetchpriority="high" />
 
-  <!-- Pixel X App - START -->
-  <script type='text/javascript'>
-    !function(){var e=window.location.href,t=document.title,n=Date.now(),o=document.createElement('script');o.src='https://pxa.cppem.com.br/remote?url='+encodeURIComponent(e)+'&title='+encodeURIComponent(t)+'&time='+n,o.async=!0,document.head.appendChild(o)}()
-  </script>
-  <!-- Pixel X App - END -->
-
-  <!-- Meta Pixel | ID: 1038964087991021 -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1038964087991021');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1038964087991021&ev=PageView&noscript=1" />
-  </noscript>
-
   <style>
     :root{
       --green:#4f7129;
@@ -340,6 +316,13 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (server-side) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://sgtm.cppem.com.br/metrics/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PJ379FLQ');</script>
+  <!-- End Google Tag Manager -->
 
   <!-- Fundo mesclado -->
   <div class="bg" aria-hidden="true"></div>
@@ -374,11 +357,6 @@
       <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="form-modal-title">
         <button type="button" class="modal-close" id="close-form-btn" aria-label="Fechar">&times;</button>
 
-        <!-- PixelX: a classe "gbcbxsmvgqsjeajougck" no botão dispara a conversão (Contact).
-             O Super Pixel captura automaticamente os campos pelo name/id (nome, email,
-             telefone), transformando o lead anônimo em lead cadastrado.
-             A classe só é adicionada via script.js quando todos os campos estão
-             válidos, para evitar contabilizar lead em clique com formulário vazio/errado. -->
         <form class="form" id="lead-form" novalidate>
           <p class="form__title" id="form-modal-title">FAÇA SEU TECNÓLOGO EM 18 MESES</p>
 
@@ -455,5 +433,12 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://sgtm.cppem.com.br/metrics/ns.html?id=GTM-PJ379FLQ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>

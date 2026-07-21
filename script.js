@@ -1,6 +1,6 @@
 /* =========================================================
    UniCV Caruaru — Pré-venda
-   Formulário → Google Sheets + Pixel + PixelX redirect WhatsApp
+   Formulário → Google Sheets → redirect WhatsApp
    ========================================================= */
 
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIWb645xRjGNhBVhTdTf5UMjo0lSpW_A_jCuys0qB4uImKXPQ/exec?aba=UNICIVE";
@@ -80,30 +80,6 @@ function clearError(name) {
 }
 
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-/* Checagem silenciosa (sem mexer na UI de erro), usada para só liberar
-   a classe de conversão do PixelX quando o formulário estiver realmente válido. */
-function isFormValid() {
-  const nome = form.nome.value.trim();
-  const email = form.email.value.trim();
-  const tel = form.telefone.value.replace(/\D/g, "");
-  const escolaridade = form.escolaridade.value;
-
-  return nome.length >= 3 && isEmail(email) && tel.length >= 10 && !!escolaridade;
-}
-
-const PIXELX_CLASS = "gbcbxsmvgqsjeajougck";
-
-function syncPixelClass() {
-  const btn = document.getElementById("lead-submit");
-  if (btn) btn.classList.toggle(PIXELX_CLASS, isFormValid());
-}
-
-if (form) {
-  form.addEventListener("input", syncPixelClass);
-  form.addEventListener("change", syncPixelClass);
-  syncPixelClass();
-}
 
 function validate() {
   let ok = true;
