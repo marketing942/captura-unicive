@@ -8,6 +8,9 @@ const SHEET_URL = "https://script.google.com/macros/s/AKfycbxdFplWVSfhTjvyIA7HIW
 const PIXELX_WHATSAPP_REDIRECT = "https://pxa.cppem.com.br/lt/unicive-whatsapp-redirect";
 const WHATSAPP_MSG = "Quero saber mais sobre o superior EAD!";
 
+// Sem Ensino Médio → encaminhar para o supletivo (não vai pro WhatsApp)
+const SUPLETIVO_REDIRECT = "https://cppem-supletivo-filiado.vercel.app/";
+
 /* ---------- Popup do formulário ---------- */
 const formModal = document.getElementById("form-modal");
 const openFormTriggers = document.querySelectorAll("#open-form-btn, .js-open-form");
@@ -62,6 +65,20 @@ if (formModal) {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && formModal && !formModal.hidden) closeFormModal();
 });
+
+/* ---------- Navbar revelado ao rolar (abaixo da logo do topo) ---------- */
+const navbar = document.getElementById("navbar");
+const heroLogo = document.querySelector(".logo");
+if (navbar) {
+  const revealPoint = () =>
+    heroLogo ? heroLogo.offsetTop + heroLogo.offsetHeight - 8 : 120;
+  const onScroll = () => {
+    navbar.classList.toggle("is-visible", window.scrollY > revealPoint());
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+}
 
 /* ---------- Validação ---------- */
 const form = document.getElementById("lead-form");
@@ -182,8 +199,12 @@ if (form) {
         phone: telLimpo
       });
 
+      // "Não tenho" Ensino Médio → supletivo; caso contrário, o redirect ativo
+      const semEnsinoMedio = escolaridadeSelect.value === "segunda-graduacao";
+      const destino = semEnsinoMedio ? SUPLETIVO_REDIRECT : activeRedirect;
+
       setTimeout(() => {
-        window.location.href = `${activeRedirect}?${params.toString()}`;
+        window.location.href = `${destino}?${params.toString()}`;
       }, 700);
 
     } catch (err) {

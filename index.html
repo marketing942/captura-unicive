@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="public/logomarca unicive.png" />
   <link rel="preload" as="image" href="public/background1.webp" fetchpriority="high" />
-  <link rel="preload" as="image" href="public/logomarca unicive.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="public/formados/logo2.png" fetchpriority="high" />
 
   <style>
     :root{
@@ -71,10 +71,43 @@
 
     /* ===== Logo topo ===== */
     .logo{
-      width:min(280px,68vw);
+      width:min(138px,34vw);
       height:auto;
       filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
-      margin-bottom:18px;
+      margin-bottom:4px;
+    }
+
+    /* ===== Navbar fixo (aparece ao rolar) ===== */
+    .navbar{
+      position:fixed;top:0;left:0;right:0;z-index:900;
+      background:linear-gradient(180deg, rgba(34,56,15,.94), rgba(22,38,10,.94));
+      backdrop-filter:blur(10px) saturate(1.1);
+      border-bottom:1px solid rgba(227,161,27,.4);
+      box-shadow:0 8px 26px rgba(20,40,8,.28);
+      transform:translateY(-105%);
+      opacity:0;
+      transition:transform .35s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
+    }
+    .navbar.is-visible{transform:translateY(0);opacity:1}
+    .navbar__inner{
+      max-width:1000px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:9px 22px;
+    }
+    .navbar__logo{width:auto;display:block;filter:drop-shadow(0 3px 8px rgba(0,0,0,.35))}
+    .navbar__logo--unicive{height:34px}
+    .navbar__logo--cppem{height:48px}
+    .navbar__link{display:inline-flex;line-height:0;cursor:pointer;transition:transform .16s, filter .16s}
+    .navbar__link:hover{transform:translateY(-1px);filter:brightness(1.08)}
+    .navbar__link:focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:6px}
+    .navbar__divider{
+      flex:1 1 auto;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(227,161,27,.35),transparent);
+    }
+    @media (max-width:480px){
+      .navbar__inner{padding:8px 16px;gap:12px}
+      .navbar__logo--unicive{height:27px}
+      .navbar__logo--cppem{height:38px}
     }
 
     /* ===== Headline ===== */
@@ -440,6 +473,9 @@
     .mec__seals img{height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4))}
     .mec__seals .s-nota{width:min(180px,44vw)}
     .mec__seals .s-mec{width:min(140px,34vw)}
+    .seal-link{display:inline-flex;line-height:0;cursor:pointer;transition:transform .16s, filter .16s}
+    .seal-link:hover{transform:translateY(-3px);filter:brightness(1.06)}
+    .seal-link:focus-visible{outline:3px solid var(--ring);outline-offset:3px;border-radius:8px}
 
     /* ----- Tabela comparativa (painel sólido legível) ----- */
     .block--vs{max-width:1080px}
@@ -593,10 +629,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bg" aria-hidden="true"></div>
   <div class="bg-scrim" aria-hidden="true"></div>
 
+  <!-- Navbar fixo (revelado ao rolar) -->
+  <nav class="navbar" id="navbar" aria-label="Barra de navegação">
+    <div class="navbar__inner">
+      <img class="navbar__logo navbar__logo--unicive" src="public/logomarca unicive.png" alt="Unicive Caruaru-PE" loading="lazy" decoding="async" />
+      <span class="navbar__divider" aria-hidden="true"></span>
+      <a class="navbar__link" href="https://cppem.com.br" target="_blank" rel="noopener noreferrer" aria-label="Ir para o site do CPPEM">
+        <img class="navbar__logo navbar__logo--cppem" src="public/logo-cppem.png" alt="CPPEM Concursos Públicos" loading="lazy" decoding="async" />
+      </a>
+    </div>
+  </nav>
+
   <main class="page">
 
     <!-- Logo UniCV -->
-    <img class="logo" src="public/logomarca unicive.png" alt="Unicive Caruaru - PE" fetchpriority="high" decoding="async" />
+    <img class="logo" src="public/formados/logo2.png" alt="Unicive Caruaru - PE" fetchpriority="high" decoding="async" />
 
     <!-- 1. HEADLINE -->
     <h1 class="headline">
@@ -649,7 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="note">Cadastro gratuito. Seus dados estão seguros.</p>
           <p class="success" id="form-success" role="status" hidden>
             ✅ Cadastro recebido!<br />
-            Você será redirecionado ao WhatsApp em <strong><span id="countdown">3</span>s</strong>...
+            Você será redirecionado em instantes...
           </p>
         </form>
       </div>
@@ -874,8 +921,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <strong>com nota máxima no MEC</strong>, com a segurança de quem estuda em uma instituição séria.
       </p>
       <div class="mec__seals">
-        <img class="s-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
-        <img class="s-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+        <a class="seal-link" href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/MzY0OQ==" target="_blank" rel="noopener noreferrer" aria-label="Consultar cadastro no e-MEC">
+          <img class="s-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
+        </a>
+        <a class="seal-link" href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/MzY0OQ==" target="_blank" rel="noopener noreferrer" aria-label="Consultar reconhecimento no e-MEC">
+          <img class="s-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+        </a>
       </div>
     </div>
   </section>
@@ -928,8 +979,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           validade em todo o território nacional.
         </p>
         <div class="site-footer__badges">
-          <img class="b-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
-          <img class="b-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+          <a class="seal-link" href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/MzY0OQ==" target="_blank" rel="noopener noreferrer" aria-label="Consultar cadastro no e-MEC">
+            <img class="b-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
+          </a>
+          <a class="seal-link" href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/MzY0OQ==" target="_blank" rel="noopener noreferrer" aria-label="Consultar reconhecimento no e-MEC">
+            <img class="b-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+          </a>
         </div>
       </div>
 
