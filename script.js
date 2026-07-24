@@ -10,13 +10,27 @@ const WHATSAPP_MSG = "Quero saber mais sobre o superior EAD!";
 
 /* ---------- Popup do formulário ---------- */
 const formModal = document.getElementById("form-modal");
-const openFormBtn = document.getElementById("open-form-btn");
+const openFormTriggers = document.querySelectorAll("#open-form-btn, .js-open-form");
 const closeFormBtn = document.getElementById("close-form-btn");
 
-function openFormModal() {
+// Redirect ativo — pode ser sobrescrito pelo gatilho (ex.: cards de curso → grupos)
+let activeRedirect = PIXELX_WHATSAPP_REDIRECT;
+
+async function openFormModal(trigger) {
   if (!formModal) return;
+  activeRedirect =
+    (trigger && trigger.dataset && trigger.dataset.redirect) || PIXELX_WHATSAPP_REDIRECT;
   formModal.hidden = false;
   document.body.classList.add("modal-open");
+
+  // PixelX: carrega/aplica a máscara de telefone ao abrir o popup
+  try {
+    if (window.pixel_x_app && typeof window.pixel_x_app.mask_load === "function") {
+      await window.pixel_x_app.mask_load();
+    }
+  } catch (err) {
+    console.warn("[PixelX] mask_load falhou:", err);
+  }
 }
 
 function closeFormModal() {
@@ -25,7 +39,18 @@ function closeFormModal() {
   document.body.classList.remove("modal-open");
 }
 
-if (openFormBtn) openFormBtn.addEventListener("click", openFormModal);
+openFormTriggers.forEach((el) => {
+  el.addEventListener("click", () => openFormModal(el));
+  // Suporte a teclado para gatilhos que não são <button> (ex.: cards de curso)
+  if (el.tagName !== "BUTTON") {
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openFormModal(el);
+      }
+    });
+  }
+});
 if (closeFormBtn) closeFormBtn.addEventListener("click", closeFormModal);
 
 if (formModal) {
@@ -67,15 +92,15 @@ const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 function validate() {
   let ok = true;
 
-  ["nome", "email", "telefone", "escolaridade"].forEach(clearError);
+  ["name", "email", "phone", "escolaridade"].forEach(clearError);
 
-  const nome = form.nome.value.trim();
-  const email = form.email.value.trim();
-  const tel = form.telefone.value.replace(/\D/g, "");
-  const escolaridade = form.escolaridade.value;
+  const nome = document.getElementById("lead_name").value.trim();
+  const email = document.getElementById("lead_email").value.trim();
+  const tel = document.getElementById("lead_phone").value.replace(/\D/g, "");
+  const escolaridade = document.getElementById("escolaridade").value;
 
   if (nome.length < 3) {
-    setError("nome", "Informe seu nome completo.");
+    setError("name", "Informe seu nome completo.");
     ok = false;
   }
 
@@ -85,7 +110,7 @@ function validate() {
   }
 
   if (tel.length < 10) {
-    setError("telefone", "Informe um telefone válido com DDD.");
+    setError("phone", "Informe um telefone válido com DDD.");
     ok = false;
   }
 
@@ -110,16 +135,19 @@ if (form) {
     btn.disabled = true;
     btn.textContent = "ENVIANDO...";
 
-    const escolaridadeSelect = form.escolaridade;
+    const escolaridadeSelect = document.getElementById("escolaridade");
+    const nomeEl = document.getElementById("lead_name");
+    const emailEl = document.getElementById("lead_email");
+    const phoneEl = document.getElementById("lead_phone");
 
     // Telefone limpo em formato E.164 (5581987654321)
-    const telLimpo = "55" + form.telefone.value.replace(/\D/g, "");
+    const telLimpo = "55" + phoneEl.value.replace(/\D/g, "");
 
     const payload = {
-      nome: form.nome.value.trim(),
-      email: form.email.value.trim(),
-      telefone: form.telefone.value.trim(),
-      telefone_e164: telLimpo,
+      name: nomeEl.value.trim(),
+      email: emailEl.value.trim(),
+      phone: phoneEl.value.trim(),
+      phone_e164: telLimpo,
       escolaridade: escolaridadeSelect.options[escolaridadeSelect.selectedIndex].text,
       pagina_url: window.location.href,
       utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
@@ -149,19 +177,19 @@ if (form) {
       // Redirect com dados explícitos — não depende da captura automática do pixel
       const params = new URLSearchParams({
         text: WHATSAPP_MSG,
-        name: form.nome.value.trim(),
-        email: form.email.value.trim(),
+        name: nomeEl.value.trim(),
+        email: emailEl.value.trim(),
         phone: telLimpo
       });
 
       setTimeout(() => {
-        window.location.href = `${PIXELX_WHATSAPP_REDIRECT}?${params.toString()}`;
+        window.location.href = `${activeRedirect}?${params.toString()}`;
       }, 700);
 
     } catch (err) {
       console.error("[Form] Erro ao enviar:", err);
 
-      setError("telefone", "Erro ao enviar. Tente novamente.");
+      setError("phone", "Erro ao enviar. Tente novamente.");
 
       btn.disabled = false;
       btn.textContent = "QUERO GARANTIR MINHA VAGA";

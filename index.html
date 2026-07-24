@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://sgtm.cppem.com.br/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PJ379FLQ');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unicive Caruaru — Pré-venda da sua Graduação Reconhecida pelo MEC</title>
@@ -313,18 +322,273 @@
       .carousel__item img{width:180px;height:230px}
       .footer{padding-bottom:28px}
     }
-  </style>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://sgtm.cppem.com.br/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PJ379FLQ');</script>
-  <!-- End Google Tag Manager -->
+    /* =========================================================
+       Seções de campanha (dores, sonhos, MEC, comparativo)
+       ========================================================= */
+    .block{
+      width:100%;
+      max-width:1000px;
+      margin:0 auto;
+      padding:46px 20px;
+      text-align:center;
+    }
+    .block__eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:#c2820a;
+      font-weight:700;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      font-size:12.5px;
+      margin-bottom:10px;
+    }
+    .block__eyebrow::before,
+    .block__eyebrow::after{
+      content:"";
+      width:26px;height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold));
+    }
+    .block__eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent)}
+    .block__title{
+      font-family:'Bebas Neue',sans-serif;
+      font-weight:400;
+      letter-spacing:.5px;
+      line-height:1.04;
+      color:var(--green-dark);
+      font-size:clamp(28px,5.6vw,46px);
+      text-shadow:0 1px 0 rgba(255,255,255,.6);
+      margin-bottom:8px;
+    }
+    .block__title .hl{color:#c2820a}
+    .block__intro{
+      color:#3f5a23;
+      font-size:clamp(14px,2.2vw,16.5px);
+      font-weight:500;
+      max-width:620px;
+      margin:0 auto 28px;
+      line-height:1.5;
+    }
+
+    /* ----- Grid de cards ----- */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      text-align:left;
+    }
+    .card{
+      position:relative;
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(227,161,27,.35);
+      border-radius:18px;
+      padding:22px 20px;
+      box-shadow:0 14px 34px rgba(20,40,8,.12);
+      display:flex;
+      gap:15px;
+      align-items:center;
+      transition:transform .16s, box-shadow .16s, border-color .16s;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 20px 46px rgba(20,40,8,.18)}
+    .card__ico{
+      flex:0 0 auto;
+      width:48px;height:48px;
+      border-radius:13px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .card__ico svg{width:24px;height:24px;stroke-width:2}
+    .card__txt{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.35}
+
+    /* dores */
+    .block--dores .card{border-color:rgba(192,57,43,.22)}
+    .block--dores .card__ico{background:rgba(192,57,43,.1);color:#c0392b}
+    .block--dores .card:hover{border-color:rgba(192,57,43,.4)}
+
+    /* sonhos */
+    .block--sonhos{padding-top:6px}
+    .block--sonhos .card__ico{
+      background:linear-gradient(160deg,var(--gold-light),var(--gold));
+      color:#241a00;
+      box-shadow:0 6px 16px rgba(227,161,27,.35);
+    }
+    .block--sonhos .card__txt{color:var(--green-darker)}
+    .block--sonhos .card:hover{border-color:rgba(227,161,27,.6)}
+
+    /* ----- Faixa MEC ----- */
+    .mec-wrap{padding-top:10px}
+    .mec{
+      max-width:840px;margin:0 auto;
+      background:linear-gradient(160deg, rgba(79,113,41,.98), rgba(34,56,15,.98));
+      border:1px solid rgba(227,161,27,.5);
+      border-radius:24px;
+      padding:38px 28px;
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .mec__title{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(26px,5.2vw,42px);
+      letter-spacing:.5px;line-height:1.05;margin-bottom:14px;
+    }
+    .mec__title .hl{color:var(--gold-light)}
+    .mec__text{
+      font-size:clamp(14px,2.2vw,16px);font-weight:500;color:#e9efdd;
+      max-width:660px;margin:0 auto 26px;line-height:1.6;
+    }
+    .mec__seals{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap}
+    .mec__seals img{height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4))}
+    .mec__seals .s-nota{width:min(180px,44vw)}
+    .mec__seals .s-mec{width:min(140px,34vw)}
+
+    /* ----- Tabela comparativa (painel sólido legível) ----- */
+    .block--vs{max-width:1080px}
+    .vs-panel{
+      background:linear-gradient(160deg, rgba(52,80,26,.99), rgba(22,38,10,.99));
+      border:1px solid rgba(227,161,27,.4);
+      border-radius:26px;
+      padding:clamp(24px,4vw,42px) clamp(16px,3vw,32px) 28px;
+      box-shadow:var(--shadow);
+    }
+    .block--vs .block__eyebrow{color:var(--gold-light)}
+    .block--vs .block__title{color:#fff;text-shadow:none}
+    .block--vs .block__title .hl{color:var(--gold-light)}
+    .block--vs .block__intro{color:#dbe5cb}
+    .table-scroll{
+      overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    }
+    @media (min-width:860px){.table-scroll{-webkit-mask-image:none;mask-image:none}.vs-hint{display:none}}
+    .vs2{width:100%;min-width:720px;border-collapse:separate;border-spacing:0;text-align:left}
+    .vs2 th,.vs2 td{padding:15px 14px;vertical-align:middle}
+    .vs2 thead th{
+      font-weight:800;text-transform:uppercase;letter-spacing:.5px;font-size:11.5px;
+      color:#c4cfb2;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;
+    }
+    .vs2 thead .vs2-crit{width:23%}
+    .vs2 thead .is-unicive{
+      color:#241a00;background:linear-gradient(180deg,var(--gold-light),var(--gold));
+      text-align:center;border-radius:12px 12px 0 0;letter-spacing:1px;font-size:13px;
+    }
+    .vs2 tbody .crit{font-weight:700;color:#fff;font-size:13.5px;line-height:1.3}
+    .vs2 tbody td{border-bottom:1px solid rgba(255,255,255,.07)}
+    .vs2 tbody tr:last-child td{border-bottom:0}
+    .vs2 tbody .col-unicive{background:rgba(227,161,27,.13)}
+    .vs2 tbody tr:last-child .col-unicive{border-radius:0 0 12px 12px}
+    .vs2 .cell{display:flex;align-items:center;gap:9px;font-size:12.8px;line-height:1.3;color:#b7c1a4}
+    .vs2 .col-unicive .cell{color:#fbe7c4;font-weight:700}
+    .vs2 .mk{flex:0 0 auto;width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .vs2 .mk svg{width:12px;height:12px;stroke-width:3.2}
+    .vs2 .mk--yes{background:#7bae3c;color:#12250a}
+    .vs2 .mk--no{background:rgba(192,57,43,.92);color:#fff}
+    .vs-hint{color:#a9b797;font-size:12.5px;font-weight:600;margin-top:16px}
+
+    /* ----- Principais cursos ----- */
+    .courses{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(196px,1fr));
+      gap:18px;
+    }
+    .course{
+      position:relative;
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(227,161,27,.35);
+      border-radius:20px;
+      padding:28px 20px 24px;
+      box-shadow:0 14px 34px rgba(20,40,8,.12);
+      text-align:center;
+      overflow:hidden;
+      cursor:pointer;
+      transition:transform .16s, box-shadow .16s, border-color .16s;
+    }
+    .course:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+    .course::before{
+      content:"";position:absolute;left:0;top:0;height:4px;width:100%;
+      background:linear-gradient(90deg,var(--gold-light),var(--gold));
+    }
+    .course:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(20,40,8,.18);border-color:rgba(227,161,27,.6)}
+    .course__badge{
+      position:absolute;top:12px;right:12px;
+      font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+      color:#241a00;background:linear-gradient(180deg,var(--gold-light),var(--gold));
+      padding:4px 9px;border-radius:999px;box-shadow:0 4px 12px rgba(227,161,27,.4);
+    }
+    .course__ico{
+      width:58px;height:58px;margin:6px auto 14px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(160deg, rgba(79,113,41,.14), rgba(227,161,27,.18));
+      color:var(--green-dark);
+    }
+    .course__ico svg{width:28px;height:28px;stroke-width:2}
+    .course__name{font-weight:800;color:var(--green-dark);font-size:16.5px;line-height:1.25;margin-bottom:8px}
+    .course__tag{
+      display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+      color:#c2820a;background:rgba(227,161,27,.12);padding:5px 12px;border-radius:999px;
+    }
+
+    /* ----- CTA no meio ----- */
+    .cta-band{width:100%;max-width:460px;margin:6px auto 0;padding:0 20px}
+    .cta-band .cta{width:100%}
+
+    /* =========================================================
+       Rodapé profissional (foco Unicive)
+       ========================================================= */
+    .site-footer{
+      width:100%;
+      background:linear-gradient(180deg, rgba(34,56,15,.98), rgba(18,30,8,.99));
+      color:#dfe7d2;
+      margin-top:40px;
+      padding:46px 22px 30px;
+      text-align:left;
+    }
+    .site-footer__inner{
+      max-width:1000px;margin:0 auto;
+      display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;align-items:start;
+    }
+    .site-footer__brand img{width:min(210px,58vw);filter:drop-shadow(0 6px 16px rgba(0,0,0,.4));margin-bottom:14px}
+    .site-footer__tagline{font-size:14px;line-height:1.6;color:#c3cfb2;max-width:340px;margin-bottom:16px}
+    .site-footer__badges{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .site-footer__badges img{filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+    .site-footer__badges .b-nota{width:120px}
+    .site-footer__badges .b-mec{width:96px}
+    .site-footer__col h4{
+      font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+      font-size:12px;color:var(--gold-light);margin-bottom:16px;
+    }
+    .site-footer__col a{
+      display:block;color:#d7e0c8;text-decoration:none;
+      font-size:14px;margin-bottom:11px;transition:color .15s;cursor:pointer;
+      background:none;border:0;padding:0;font-family:inherit;text-align:left;
+    }
+    .site-footer__col a:hover{color:var(--gold-light)}
+    .site-footer__bottom{
+      max-width:1000px;margin:30px auto 0;padding-top:20px;
+      border-top:1px solid rgba(227,161,27,.22);
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      font-size:12.5px;color:#a9b797;
+    }
+    .site-footer__bottom strong{color:#e7eedb;font-weight:800}
+
+    @media (max-width:640px){
+      .cards{grid-template-columns:1fr}
+      .site-footer{text-align:center}
+      .site-footer__inner{grid-template-columns:1fr;gap:26px;justify-items:center}
+      .site-footer__tagline{margin-left:auto;margin-right:auto}
+      .site-footer__badges{justify-content:center}
+      .site-footer__col a{text-align:center}
+      .site-footer__bottom{justify-content:center;text-align:center}
+    }
+  </style>
 
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://sgtm.cppem.com.br/metrics?id=GTM-PJ379FLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   <!-- Fundo mesclado -->
   <div class="bg" aria-hidden="true"></div>
   <div class="bg-scrim" aria-hidden="true"></div>
@@ -336,11 +600,10 @@
 
     <!-- 1. HEADLINE -->
     <h1 class="headline">
-      Sua graduação <span class="hl">reconhecida pelo MEC</span> começa aqui.
+      Seu nível superior <span class="hl">reconhecido pelo MEC</span> começa aqui.
     </h1>
     <p class="sub">
-      Se cadestre na universidade do concurseiro, a Unicive Caruaru-PE e garanta condições especiais
-      para iniciar ou avançar na sua formação com nota máxima no MEC.
+      Preencha o formulário abaixo e fale conosco para receber a orientação necessária para ser aprovado(a)!
     </p>
 
     <!-- 2. VÍDEO -->
@@ -362,16 +625,16 @@
           <p class="form__title" id="form-modal-title">FAÇA SEU TECNÓLOGO EM 18 MESES</p>
 
           <div class="field">
-            <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Nome completo" required />
-            <span class="error" data-error-for="nome"></span>
+            <input type="text" id="lead_name" name="name" autocomplete="name" placeholder="Nome completo" required />
+            <span class="error" data-error-for="name"></span>
           </div>
           <div class="field">
-            <input type="email" id="email" name="email" autocomplete="email" placeholder="E-mail" required />
+            <input type="email" id="lead_email" name="email" autocomplete="email" placeholder="E-mail" required />
             <span class="error" data-error-for="email"></span>
           </div>
-          <div class="field">
-            <input type="text" id="telefone" name="telefone" autocomplete="tel" placeholder="Seu WhatsApp: (00) 00000-0000" required />
-            <span class="error" data-error-for="telefone"></span>
+          <div class="field pxa_mask_phone">
+            <input type="text" id="lead_phone" name="phone" autocomplete="tel" placeholder="Seu WhatsApp: (00) 00000-0000" required />
+            <span class="error" data-error-for="phone"></span>
           </div>
           <div class="field">
             <select id="escolaridade" name="escolaridade" required>
@@ -392,8 +655,233 @@
       </div>
     </div>
 
-    <!-- 3. CARROSSEL — formados UniCV -->
-    <section class="social">
+  </main>
+
+  <!-- ===== DORES ===== -->
+  <section class="block block--dores" id="dores">
+    <span class="block__eyebrow">O que te prende hoje</span>
+    <h2 class="block__title">O que <span class="hl">te impede</span> de subir de nível</h2>
+    <p class="block__intro">Se você se reconhece em algum desses pontos, o problema nunca foi você — foi não ter a faculdade certa.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </div>
+        <p class="card__txt">Não poder fazer concurso de nível superior.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <p class="card__txt">Não ter tempo de fazer uma faculdade presencial.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <p class="card__txt">Não ter dinheiro para fazer uma faculdade presencial.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9.5 14 1.8 1.8 3.2-3.6"/></svg>
+        </div>
+        <p class="card__txt">Não ter oportunidades de trabalho por não ter o nível superior.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SONHOS ===== -->
+  <section class="block block--sonhos" id="sonhos">
+    <span class="block__eyebrow">Onde você quer chegar</span>
+    <h2 class="block__title">O que você <span class="hl">conquista</span> com a Unicive</h2>
+    <p class="block__intro">A graduação EAD do concurseiro foi feita pra te levar exatamente até aqui:</p>
+    <div class="cards">
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.8L6.6 19.6l1-6L3.3 9.4l6-.9z"/></svg>
+        </div>
+        <p class="card__txt">Assumir um concurso de nível superior!</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <p class="card__txt">Conquistar o diploma com mais facilidade!</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+        </div>
+        <p class="card__txt">Conquistar o diploma mais rápido!</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2a2.6 2.6 0 0 0-2.5-1.6c-1.4 0-2.5.9-2.5 2s1 1.7 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2a2.6 2.6 0 0 1-2.5-1.6M12 6v1.6M12 16.4V18"/></svg>
+        </div>
+        <p class="card__txt">Conquistar o diploma investindo menos!</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== TABELA COMPARATIVA ===== -->
+  <section class="block block--vs" id="comparativo">
+    <div class="vs-panel">
+      <span class="block__eyebrow">Unicive vs. as alternativas</span>
+      <h2 class="block__title">Por que a <span class="hl">Unicive</span> é a escolha certa</h2>
+      <p class="block__intro">A diferença entre pagar caro, se perder no caminho e realmente conquistar o seu diploma pro concurso.</p>
+      <div class="table-scroll">
+        <table class="vs2">
+          <thead>
+            <tr>
+              <th class="vs2-crit">O que você precisa</th>
+              <th class="is-unicive">Unicive</th>
+              <th>Faculdade presencial</th>
+              <th>EAD genérica</th>
+              <th>Faculdade tradicional cara</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="crit">Reconhecida pelo MEC</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Nota máxima</span></td>
+              <td><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reconhecida</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Nota varia muito</span></td>
+              <td><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reconhecida</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Estuda 100% de casa</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>No seu ritmo</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Presença obrigatória</span></td>
+              <td><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Online</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Presencial</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Preço que cabe no bolso</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acessível</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Caro + transporte</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Mensalidade alta</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Mensalidade alta</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Foco total no concurseiro</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Feita pra concurso</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Genérica</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Sem foco</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Genérica</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Comunidade e suporte</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Turma + suporte</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Cada um por si</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você sozinho</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Burocrático</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Formação mais rápida</td>
+              <td class="col-unicive"><span class="cell"><span class="mk mk--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Otimizada</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Longa duração</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Padrão lento</span></td>
+              <td><span class="cell"><span class="mk mk--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Longa duração</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="vs-hint">↔ Arraste para o lado para ver todas as opções.</p>
+    </div>
+  </section>
+
+  <!-- ===== PRINCIPAIS CURSOS ===== -->
+  <section class="block" id="cursos">
+    <span class="block__eyebrow">Os mais procurados</span>
+    <h2 class="block__title">Principais <span class="hl">cursos</span></h2>
+    <p class="block__intro">Graduações EAD reconhecidas pelo MEC, pensadas pra sua aprovação no concurso e pro mercado de trabalho.</p>
+    <div class="courses">
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <span class="course__badge">Mais procurado</span>
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M4 10h16L12 4z"/></svg>
+        </div>
+        <h3 class="course__name">Serviços Jurídicos</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.6 7 9 4-1.4 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 class="course__name">Segurança Privada</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M18 14a4 4 0 0 1 3 3.9V19M17 5.2a3.5 3.5 0 0 1 0 6.6"/></svg>
+        </div>
+        <h3 class="course__name">Recursos Humanos</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18.5" r="1.8"/><circle cx="17" cy="18.5" r="1.8"/></svg>
+        </div>
+        <h3 class="course__name">Logística</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 8a5 5 0 0 1 0 8"/></svg>
+        </div>
+        <h3 class="course__name">Marketing</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.6 7 9 4-1.4 7-4.5 7-9V6z"/><path d="m12 8 1.1 2.3 2.5.3-1.8 1.7.4 2.5L12 13.9l-2.2 1.2.4-2.5-1.8-1.7 2.5-.3z"/></svg>
+        </div>
+        <h3 class="course__name">Gestão da Atividade Policial</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m7 12 3-3 2.5 2.5L17 7.5"/></svg>
+        </div>
+        <h3 class="course__name">Marketing Digital</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+
+      <article class="course js-open-form" role="button" tabindex="0" data-redirect="https://pxa.cppem.com.br/lt/unicive-contato-grupos">
+        <div class="course__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M21 21l-5.2-5.2"/><path d="M10.5 7.5v3l2 1.2"/></svg>
+        </div>
+        <h3 class="course__name">Criminologia</h3>
+        <span class="course__tag">Graduação EAD</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SELO MEC ===== -->
+  <section class="block mec-wrap" id="mec">
+    <div class="mec">
+      <h2 class="mec__title">Diploma <span class="hl">reconhecido pelo MEC</span> e válido em todo o Brasil</h2>
+      <p class="mec__text">
+        A Unicive é uma instituição certificada pelo MEC e o seu diploma tem validade em
+        <strong>todo o território nacional</strong> — vale para concursos públicos, provas de títulos e
+        para o mercado de trabalho, exatamente como uma faculdade presencial. Você conquista uma graduação
+        <strong>com nota máxima no MEC</strong>, com a segurança de quem estuda em uma instituição séria.
+      </p>
+      <div class="mec__seals">
+        <img class="s-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
+        <img class="s-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARROSSEL — formados UniCV ===== -->
+  <section class="social" id="formados">
       <span class="social__eyebrow">Nossos formados</span>
       <div class="carousel" aria-label="Fotos de formados da Unicive">
         <ul class="carousel__track">
@@ -425,20 +913,49 @@
       </div>
     </section>
 
-  </main>
+  <!-- ===== CTA final ===== -->
+  <div class="cta-band">
+    <button type="button" class="cta js-open-form">QUERO MEU ENSINO SUPERIOR</button>
+  </div>
 
-  <!-- 4. RODAPÉ — selos -->
-  <footer class="footer">
-    <img class="seal-notamaxima" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
-    <img class="seal-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+  <!-- ===== RODAPÉ PROFISSIONAL ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="public/logomarca unicive.png" alt="Unicive Caruaru - PE" loading="lazy" decoding="async" />
+        <p class="site-footer__tagline">
+          A faculdade EAD dos concurseiros. Graduação reconhecida pelo MEC, com nota máxima e
+          validade em todo o território nacional.
+        </p>
+        <div class="site-footer__badges">
+          <img class="b-nota" src="public/notamaxima.png" alt="Nota máxima 5 no MEC" loading="lazy" decoding="async" />
+          <img class="b-mec" src="public/Reconhecimento MEC.png" alt="Reconhecido pelo MEC" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <nav class="site-footer__col" aria-label="Navegação">
+        <h4>Navegue</h4>
+        <a href="#sonhos">O que você conquista</a>
+        <a href="#comparativo">Por que a Unicive</a>
+        <a href="#mec">Reconhecimento MEC</a>
+        <a href="#formados">Nossos formados</a>
+      </nav>
+
+      <div class="site-footer__col">
+        <h4>Comece agora</h4>
+        <a class="js-open-form" role="button">Garantir minha vaga</a>
+        <a class="js-open-form" role="button">Falar no WhatsApp</a>
+        <a href="#dores">Tirar minhas dúvidas</a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© 2026 <strong>Unicive Caruaru-PE</strong> — A faculdade EAD dos concurseiros.</span>
+      <span>Graduação reconhecida pelo MEC · Válida em todo o Brasil.</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://sgtm.cppem.com.br/metrics?id=GTM-PJ379FLQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 </body>
 </html>
